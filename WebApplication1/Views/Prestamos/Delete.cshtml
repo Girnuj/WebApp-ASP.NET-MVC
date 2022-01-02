@@ -1,0 +1,49 @@
+﻿@model WebApplication1.Models.Prestamos
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar Préstamo</h2>
+
+<h4>¿Estas seguro que quieres eliminar este Préstamo?</h4>
+<div>
+    <h4>Prestamos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Socios.SociosNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Socios.SociosNombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrestamosFecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrestamosFecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaDevolucion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaDevolucion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+    <input type="button" value="Volver a la lista" onclick="history.back()" class="btn btn-outline-info" />
+</div>
+    }
+</div>

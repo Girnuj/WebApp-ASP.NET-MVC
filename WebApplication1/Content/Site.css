@@ -1,0 +1,89 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: #d7ecc2;
+    
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+/*
+input, */
+
+/*select, 
+textarea {
+    max-width: 280px;
+    
+}
+*/
+
+
+.btn {
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.7rem;
+}
+
+.btn-sm {
+    border-radius: 0.9rem;
+}
+
+.form-control{
+    width: 400px;
+}
+
+@media (max-width: 1200px){
+
+    .ocultar1200{
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .ocultar768 {
+        display: none;
+    }
+}
+
+@media (max-width: 550px) {
+
+    .ocultar550 {
+        display: none;
+    }
+}
+
+.table-bordered th, .table-bordered td {
+    border: 1px solid #8a7724;
+}
+
+.nav-item {
+    font-family: Copperplate / Copperplate Gothic Light, sans-serif;
+}
+
+
+
+.table .thead-dark th {
+    color: #e8bb34;
+    background-color: #314344ab;
+    border-color: #314344ab;
+   
+  
+}
+
+.modal-content {
+    border-radius: 1rem;
+    background-color: #e6ffe2;
+}
+

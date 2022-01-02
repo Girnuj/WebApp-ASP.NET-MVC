@@ -1,0 +1,70 @@
+﻿@model IEnumerable<WebApplication1.Models.Prestamos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Prestamos</h2>
+
+<p>
+    <a class="btn btn-success" href="/Prestamos/Create"><i class="fa fa-plus-circle"></i>&nbspNuevo Prestamo</a>
+</p>
+<hr />
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Socios.SociosNombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrestamosFecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaDevolucion)
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Socios.SociosNombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrestamosFecha)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaDevolucion)
+                </td>
+                <td>
+                   
+                    <a class="btn btn-outline-danger btn-sm" onclick="EliminarPrestamo(@item.PrestamosID)"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbspEliminar</a>
+                </td>
+            </tr>
+        }
+
+</table>
+<div>
+    <a class="btn btn-info " href="~/Home/Index"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>&nbspInicio</a>
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Styles.Render("~/Content/Site.css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <script>
+        function EliminarPrestamo(prestamoID) {
+            var eliminar = confirm("¿Estas seguro de eliminar a este Prestamos?");
+            alert(eliminar);
+            if (eliminar == true) {
+                location.href = "../Prestamos/DeleteConfirmed/" + prestamoID;
+            }
+        }
+
+    </script>
+
+}

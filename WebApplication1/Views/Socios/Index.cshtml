@@ -1,0 +1,82 @@
+﻿@model IEnumerable<WebApplication1.Models.Socios>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de Socios</h2>
+
+<p>
+    <a class="btn btn-success" href="/Socios/Create"><i class="fa fa-plus-circle"></i>&nbspNuevo Socio</a>
+</p>
+<hr />
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SociosNombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SociosApellido)
+            </th>
+            <th class="ocultar768">
+                @Html.DisplayNameFor(model => model.SociosDireccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SociosTeléfeno)
+            </th>
+            <th class="ocultar768">
+                @Html.DisplayNameFor(model => model.SocioFechaNacimiento)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SociosNombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SociosApellido)
+                </td>
+                <td class="ocultar768">
+                    @Html.DisplayFor(modelItem => item.SociosDireccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SociosTeléfeno)
+                </td>
+                <td class="ocultar768">
+                    @Html.DisplayFor(modelItem => item.SocioFechaNacimiento)
+                </td>
+                <td>
+                    <a class="btn btn-outline-secondary btn-sm" href="/Socios/Edit/@item.SociosID"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbspModificar</a> |
+                    @* @Html.ActionLink("Details", "Details", new { id = item.SociosID }) |*@
+                    <a class="btn btn-outline-danger btn-sm" onclick="EliminarSocio(@item.SociosID)"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbspEliminar</a>
+                </td>
+            </tr>
+        }
+
+</table>
+<div>
+    <a class="btn btn-info " href="~/Home/Index"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>&nbspInicio</a>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Styles.Render("~/Content/Site.css")
+    @Scripts.Render("~/bundles/modernizr")
+
+       <script>
+        function EliminarSocio(socioID) {
+            var eliminar = confirm("¿Estas seguro de eliminar a este Socio?");
+            alert(eliminar);
+            if (eliminar == true) {
+                location.href = "../Socios/DeleteConfirmed/" + socioID;
+            }
+        }
+
+    </script>
+
+}

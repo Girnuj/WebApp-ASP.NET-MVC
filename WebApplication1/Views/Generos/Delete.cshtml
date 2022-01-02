@@ -1,0 +1,41 @@
+﻿@model WebApplication1.Models.Generos
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+<h2>Eliminar</h2>
+
+<h4>¿Estas seguro que quieres eliminar este Genero?</h4>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GenerosNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GenerosNombre)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            <input type="button" value="Volver a la lista" onclick="history.back()" class="btn btn-outline-info" />
+        </div>
+    }
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Styles.Render("~/Content/Site.css")
+    @Scripts.Render("~/bundles/modernizr")
+
+}

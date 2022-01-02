@@ -1,0 +1,66 @@
+﻿@model IEnumerable<WebApplication1.Models.Generos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Lista de Generos</h2>
+
+<p>
+    <a class="btn btn-success" href="/Generos/Create"><i class="fa fa-plus-circle"></i>&nbspNuevo Genero</a>
+</p>
+
+@if (ViewBag.MensajeDevuelto != null ) {
+
+    <div class="alert alert-warning text-center" role="alert" >
+        @ViewBag.MensajeDevuelto
+    </div>
+}
+
+<hr />
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GenerosNombre)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GenerosNombre)
+                </td>
+                <td>
+                    <a class="btn btn-outline-secondary btn-sm" href="/Generos/Edit/@item.GenerosID"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbspModificar</a> |
+                    <a class="btn btn-outline-danger btn-sm" onclick="EliminarGenero(@item.GenerosID)"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbspEliminar</a>
+                </td>
+            </tr>
+        }
+
+</table>
+<div>
+    <a class="btn btn-info " href="~/Home/Index"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>&nbspInicio</a>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Styles.Render("~/Content/Site.css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <script>
+        function EliminarGenero(generoID) {
+            var eliminar = confirm("¿Estas seguro de eliminar a este Genero?");
+            alert(eliminar);
+            if (eliminar == true) {
+                location.href = "../Generos/DeleteConfirmed/" + generoID;
+            }
+        }
+
+    </script>
+
+}

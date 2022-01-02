@@ -1,0 +1,72 @@
+﻿@model WebApplication1.Models.Socios
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar Socio</h2>
+
+<h4>¿Estas seguro que quieres eliminar este Socio?</h4>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SociosNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SociosNombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SociosApellido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SociosApellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SociosDireccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SociosDireccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SociosTeléfeno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SociosTeléfeno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SocioFechaNacimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SocioFechaNacimiento)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+    <input type="button" value="Volver a la lista" onclick="history.back()" class="btn btn-outline-info" />
+</div>
+    }
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Styles.Render("~/Content/Site.css")
+    @Scripts.Render("~/bundles/modernizr")
+
+}

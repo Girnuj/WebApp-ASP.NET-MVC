@@ -1,0 +1,96 @@
+﻿@model WebApplication1.Models.Libros
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar</h2>
+
+<h4>¿Estas seguro que quieres eliminar este Libro?</h4>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Autores.AutoresNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Autores.AutoresNombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Editoriales.EditorialesNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Editoriales.EditorialesNombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Generos.GenerosNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Generos.GenerosNombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Secciones.seccionesNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Secciones.seccionesNombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LibrosISNB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LibrosISNB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LibroTitulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LibroTitulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LibroResenia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LibroResenia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LibroFechaPublicacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LibroFechaPublicacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstadoLibros)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstadoLibros)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+      <div class="form-actions no-color">
+    <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+    <input type="button" value="Volver a la lista" onclick="history.back()" class="btn btn-outline-info" />
+       </div>
+    }
+</div>

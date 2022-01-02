@@ -1,0 +1,59 @@
+﻿@model IEnumerable<WebApplication1.Models.Editoriales>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Lista de Editoriales</h2>
+
+<p>
+    <a class="btn btn-success" href="/Editoriales/Create"><i class="fa fa-plus-circle"></i>&nbspNueva Editorial</a>
+</p>
+<hr />
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EditorialesNombre)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EditorialesNombre)
+                </td>
+                <td>
+                    <a class="btn btn-outline-secondary btn-sm" href="/Editoriales/Edit/@item.EditorialesID"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbspModificar</a> |
+
+                    <a class="btn btn-outline-danger btn-sm" onclick="EliminarEditorial(@item.EditorialesID)"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbspEliminar</a>
+                </td>
+            </tr>
+        }
+
+</table>
+<div>
+    <a class="btn btn-info " href="~/Home/Index"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>&nbspInicio</a>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Styles.Render("~/Content/Site.css")
+    @Scripts.Render("~/bundles/modernizr")
+
+     <script>
+        function EliminarEditorial(editorialID) {
+            var eliminar = confirm("¿Estas seguro de eliminar a esta Editorial?");
+            alert(eliminar);
+            if (eliminar == true) {
+                location.href = "../Editoriales/DeleteConfirmed/" + editorialID;
+            }
+        }
+
+    </script>
+
+}

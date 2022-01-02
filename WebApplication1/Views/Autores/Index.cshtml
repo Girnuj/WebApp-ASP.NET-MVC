@@ -1,0 +1,81 @@
+﻿@model IEnumerable<WebApplication1.Models.Autores>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listado de Autores</h2>
+
+<p>
+    <a class="btn btn-success" href="/Autores/Create"><i class="fa fa-plus-circle"></i>&nbspNuevo Autor</a>
+</p>
+
+@if (ViewBag.MensajeDevuelto != null ) {
+
+    <div class="alert alert-warning text-center" role="alert" >
+        @ViewBag.MensajeDevuelto
+    </div>
+}
+
+<hr />
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                Nombre de Autor
+            </th>
+            <th>
+                Aprellido Del Autor
+            </th>
+            <th>
+                Nombre Completo
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+           @foreach (var item in Model) { <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AutoresNombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AutoresApellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AutoresNombreCompleto)
+                </td>
+                <td>
+                    <a class="btn btn-outline-secondary btn-sm" href="/Autores/Edit/@item.AutoresID"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbspModificar</a> |
+                    <a class="btn btn-outline-danger btn-sm" onclick="EliminarAutor(@item.AutoresID)"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbspEliminar</a>
+                    @* <a class="btn btn-outline-secondary btn-sm" href="/Autores/Details/@item.AutoresID">Detalles</a>*@
+                </td>
+            </tr>
+        }
+
+</table>
+<div>
+    <a class="btn btn-info " href="~/Home/Index"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>&nbspInicio</a>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Styles.Render("~/Content/Site.css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/font-awesome.min.css")
+
+    
+    <script>
+        function EliminarAutor(autorID) {
+            var eliminar = confirm("¿Estas seguro de eliminar a este Autor?");
+            alert(eliminar);
+            if (eliminar == true) {
+                location.href = "../Autores/DeleteConfirmed/" + autorID;
+            }
+        }
+
+    </script>
+
+}
+
+
+

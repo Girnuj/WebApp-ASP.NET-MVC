@@ -1,0 +1,32 @@
+﻿@model WebApplication1.Models.Secciones
+
+@{
+    Layout = null;
+}
+
+
+<div>
+    <h4>Secciones</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.seccionesNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.seccionesNombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.seccionesID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Styles.Render("~/Content/Site.css")
+    @Scripts.Render("~/bundles/modernizr")
+
+}
