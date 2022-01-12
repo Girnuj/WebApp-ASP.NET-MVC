@@ -1,0 +1,3 @@
+# WebApp-ASP.NET-MVC
+
+Esta Web APP fue creada para mostrar mis conocimientos en C# con ASP.NET Framework (MVC), es una pequeña aplicacion para administrar una biblioteca, se pueden agregar libros, socios y administrar las prestaciones de los mismos, para esta APP se uso AJAX, JSON, JavaScripts, HTML, y CSS, y para la parte de Base de Datos se uso SQL Server Mannager Studio, si bien esteticamente le falta mucho por trabajar la idea es mostrar la funcionabilidad correcta de cada modelo y botones, sientete libre de jugar un poco con ella...
