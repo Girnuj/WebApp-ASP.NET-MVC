@@ -87,3 +87,26 @@ textarea {
     background-color: #e6ffe2;
 }
 
+/*//dividor*/
+
+/*.custom-shape-divider-bottom-1641993540 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+    .custom-shape-divider-bottom-1641993540 svg {
+        position: relative;
+        display: block;
+        width: calc(127% + 1.3px);
+        height: 93px;
+        transform: rotateY(180deg);
+    }
+
+    .custom-shape-divider-bottom-1641993540 .shape-fill {
+        fill: #68775B;
+    }*/

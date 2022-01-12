@@ -9,6 +9,7 @@ namespace WebApplication1.Models
     public class Secciones
     {
         [Key]
+        //[Display(Name = "Sección")]
         public int seccionesID { get; set; }
 
         [Display(Name = "Nombre de la Sección")]
